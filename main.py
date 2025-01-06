@@ -8,7 +8,14 @@ RESOURCE = {"water": 300, "milk": 200, "coffee": 100, "money": 0}
 def report():
     """DISPLAY THE STORE INFORMATION"""
     for stock in RESOURCE:
-        print(f"{stock.title()}: {RESOURCE[stock]}" )
+        if stock == "coffee":
+            print(f"{stock.title()}: {RESOURCE[stock]}gm")
+        elif stock == "money":
+            print(f"{stock.title()}: ${RESOURCE[stock]}")
+        else:
+            print(f"{stock.title()}: {RESOURCE[stock]}ml")
+
+
 
 
 #TODO: 2 when ordered check resource
@@ -24,7 +31,7 @@ def check_stock(customer_order):
 
 #TODO: 3 check the coin paid and return change
 
-def price_check(customer_order, quarter, dime, nickle, pennie):
+def is_transaction_successful(customer_order, quarter, dime, nickle, pennie):
     """CHECK THE CUSTOMER ORDER WITH THE PRICE AND GIVE BACK CHANGE IF
     THERE IS AND WILL ALSO RETURN TRUE IS THE IF THE MONEY PAID IS SUFFICIENT BY THE CUSTOMER"""
     total_cash = (quarter * 0.25) + (dime * 0.10) + (nickle * 0.05) + (pennie * 0.01)
@@ -46,7 +53,7 @@ def payment(customer_order):
     dime = int(input("How many dimes?: "))
     nickle = int(input("How many nickle?: "))
     pennies = int(input("How many nickle?: "))
-    return price_check (customer_order, quarters, dime, nickle, pennies)
+    return is_transaction_successful (customer_order, quarters, dime, nickle, pennies)
 
 
 
