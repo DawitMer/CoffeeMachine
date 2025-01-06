@@ -61,12 +61,13 @@ def update_resource(customer_order):
 
 def coffee_machine():
     """THIS IS THE COFFEE MACHINE CONTAINING ALL THE FUNCTIONALITIES"""
-    while True:
+    is_on = True
+    while is_on:
         order = input("What would you like? (espresso/latte/cappuccino): ").lower()
         if order == "report":
             report()
         elif order == "off":
-            return
+            is_on = False
         else:
             #check stock
             if check_stock(order):
