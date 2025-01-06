@@ -65,6 +65,8 @@ def coffee_machine():
         order = input("What would you like? (espresso/latte/cappuccino): ").lower()
         if order == "report":
             report()
+        elif order == "off":
+            return
         else:
             #check stock
             if check_stock(order):
